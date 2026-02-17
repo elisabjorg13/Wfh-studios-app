@@ -4,18 +4,61 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ProjectAccordion from '@/components/ProjectAccordion';
+import ProjectAccordion, { type Project } from '@/components/ProjectAccordion';
 
-const projects = [
+const projects: Project[] = [
   {
     title: 'https://elisabjorg.is/',
     href: 'https://elisbajorg.is/',
     year: 2025,
-    images: [
-      { src: '/elisabjorg/elisabjorg-img1.png', alt: 'Elísabet Björg homepage' },
-      { src: '/elisabjorg/elisabjorg-img2.png', alt: 'Elísabet Björg project view' },
-      { src: '/elisabjorg/elisabjorg-img3.png', alt: 'Elísabet Björg detail' },
-      { src: '/elisabjorg/elisabjorg-img4.png', alt: 'Elísabet Björg detail' },
+    media: [
+      { src: '/elisabjorg.is.WFHmockups/elisabjorg.is.mockup1.mp4', alt: 'Elísabet Björg mockup 1', type: 'video' },
+      { src: '/elisabjorg.is.WFHmockups/elisa.is.coochiemockup.jpg', alt: 'Elísabet Björg coachie mockup', type: 'image' },
+      { src: '/elisabjorg.is.WFHmockups/elisabjorg.is.simimockup.mp4', alt: 'Elísabet Björg simi mockup', type: 'video' },
+      { src: '/elisabjorg.is.WFHmockups/elisa.istoiletmockup.xray.jpg', alt: 'Elísabet Björg toilet mockup xray', type: 'image' },
+
+
+    ],
+  },
+  {
+    title: 'katrinhers.is',
+    href: 'https://katrinhers.is/',
+    year: 2025,
+    media: [
+      { src: '/katrinhers.is.WFHmockups/katrinhers.is.mp4', alt: 'Katrin Hers mockup video', type: 'video' },
+      { src: '/katrinhers.is.WFHmockups/katrinher.is.mockup1.png', alt: 'Katrin Hers mockup 1', type: 'image' },
+      { src: '/katrinhers.is.WFHmockups/katrinhers.is.mockup2.png', alt: 'Katrin Hers mockup 2', type: 'image' },
+
+    ],
+  },
+  {
+    title: 'Komumutiminus',
+    href: '',
+    year: 2025,
+    media: [
+      { src: '/Komumutiminus.WFHmockups/komumutiminus.final.mp4', alt: 'Komumutiminus final', type: 'video' },
+      { src: '/Komumutiminus.WFHmockups/komumutiminus.identidy1.png', alt: 'Komumutiminus identity 1', type: 'image' },
+      { src: '/Komumutiminus.WFHmockups/komumutiminus.identidy2.png', alt: 'Komumutiminus identity 2', type: 'image' },
+      { src: '/Komumutiminus.WFHmockups/lifidererfitt.postermockup.png', alt: 'Líf er erfitt poster mockup', type: 'image' },
+    ],
+  },
+  {
+    title: 'SUSKIN',
+    href: 'https://suskin.is/',
+    year: 2025,
+    media: [
+      { src: '/suskin.is.WFHmockups/SUSKIN.websitemockup.WFH.jpg', alt: 'SUSKIN website mockup', type: 'image' },
+      { src: '/suskin.is.WFHmockups/SUSKIN.websitemockup.home.WFH.png', alt: 'SUSKIN home mockup', type: 'image' },
+      { src: '/suskin.is.WFHmockups/SUSKIN.websitemockup.shop.WFH.png', alt: 'SUSKIN shop mockup', type: 'image' },
+    ],
+  },
+  {
+    title: '12Tónar',
+    href: 'https://12tonar.is/',
+    year: 2025,
+    media: [
+      { src: '/12Tónar.WFHmockup/12tónar.Laufeyposter.WFHmockup.png', alt: '12Tónar Laufey poster mockup', type: 'image' },
+      { src: '/12Tónar.WFHmockup/12tónar.dagskra.WFHmockup.png', alt: '12Tónar dagskrá mockup', type: 'image' },
     ],
   },
 ];

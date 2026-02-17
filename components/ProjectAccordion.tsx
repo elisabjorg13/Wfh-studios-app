@@ -1,14 +1,15 @@
 'use client';
 
 import { useId, useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
 import CustomScrollbar from './CustomScrollbar';
 
-type Project = {
+export type MediaItem = { src: string; alt: string; type: 'image' | 'video' };
+
+export type Project = {
   title: string;
   href: string;
   year: string | number;
-  images: { src: string; alt: string }[];
+  media: MediaItem[];
 };
 
 function useAutoHeight(isOpen: boolean) {
@@ -84,17 +85,27 @@ function Row({
       >
         <div ref={ref} className="">
           <CustomScrollbar className="">
-            <div className="flex mt-5">
-              {project.images.map((img, i) => (
-                <div key={i} className="relative w-[500px] flex-shrink-0 aspect-[4/3] bg-neutral-100">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="500px"
-                    className="object-cover"
-                    priority={false}
-                  />
+            <div className="flex items-center mt-5 gap-0">
+              {project.media.map((item, i) => (
+                <div key={i} className="w-[500px] flex-shrink-0 flex items-center justify-center">
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-[500px] h-auto block object-contain"
+                      aria-label={item.alt}
+                    />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-[500px] h-auto block object-contain"
+                    />
+                  )}
                 </div>
               ))}
             </div>
